@@ -1,0 +1,201 @@
+ @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates");
+     html {
+       height: 200vh;
+       background: radial-gradient(ellipse at center, #71c8e0 0%, #688acc 50%);
+       cursor: pointer;
+     }
+     
+     body {
+       height: 100vh;
+       overflow: hidden;
+       border-bottom: 10vh #1c3502 solid;
+       box-sizing: border-box;
+       position: relative;
+     }
+     
+     h1 {
+       text-align: center;
+       color: rgb(192, 233, 187);
+       font-family: "Montserrat Alternates", sans-serif;
+       font-size: 25px;
+       position: absolute;
+       z-index: 1;
+       width: 100%;
+       top: 0vh;
+       transform: translate(0, 100vh);
+       -webkit-animation: move 1s 2.5s forwards;
+               animation: move 1s 2.5s forwards;
+     }
+     
+     @-webkit-keyframes move {
+       0% {
+         transform: translate(0, 100vh);
+       }
+       100% {
+         transform: translate(0vh, 0);
+       }
+     }
+     
+     @keyframes move {
+       0% {
+         transform: translate(0, 100vh);
+       }
+       100% {
+         transform: translate(0vh, 0);
+       }
+     }
+     .flwr {
+       width: 80vmin;
+       height: 80vmin;
+       position: absolute;
+       bottom: 0;
+       left: 50%;
+       transform: translate(-50%, 0%);
+     }
+     .flwr__leaf--left, .flwr__leaf--right {
+       width: 0%;
+       height: 20%;
+       border-radius: 0% 50% 0% 50%;
+       position: absolute;
+       background: #6f8e4b;
+       top: 70%;
+       left: 45%;
+       transform: translate(-100%, -50%) rotate(-20deg);
+       -webkit-animation: flwr__leaf forwards 1s 0.5s;
+               animation: flwr__leaf forwards 1s 0.5s;
+     }
+     .flwr__leaf--right {
+       top: 80%;
+       left: 55%;
+       transform: translate(0%, -50%) rotate(-70deg);
+     }
+     @-webkit-keyframes flwr__leaf {
+       0% {
+         width: 0%;
+         border: 0px solid black;
+       }
+       100% {
+         width: 20%;
+         border: 2px solid black;
+       }
+     }
+     @keyframes flwr__leaf {
+       0% {
+         width: 0%;
+         border: 0px solid black;
+       }
+       100% {
+         width: 20%;
+         border: 2px solid black;
+       }
+     }
+     .flwr__stem {
+       position: absolute;
+       transform: translate(-50%, 0%);
+       width: 5%;
+       height: 60%;
+       background: #556d39;
+       left: 50%;
+       bottom: 0%;
+       border: 2px solid black;
+       -webkit-animation: flwr__stem forwards 1s;
+               animation: flwr__stem forwards 1s;
+     }
+     @-webkit-keyframes flwr__stem {
+       0% {
+         height: 0;
+       }
+       100% {
+         height: 60%;
+       }
+     }
+     @keyframes flwr__stem {
+       0% {
+         height: 0;
+       }
+       100% {
+         height: 60%;
+       }
+     }
+     .flwr__center {
+       border-radius: 50%;
+       background-color: #b2df7f;
+       transform: translate(-50%, -50%);
+       position: absolute;
+       left: 50%;
+       top: 40%;
+       z-index: 2;
+       -webkit-animation: flwr__center 1s 1s forwards;
+               animation: flwr__center 1s 1s forwards;
+     }
+     @-webkit-keyframes flwr__center {
+       0% {
+         width: 0%;
+         height: 0%;
+       }
+       100% {
+         width: 25%;
+         height: 25%;
+       }
+     }
+     @keyframes flwr__center {
+       0% {
+         width: 0%;
+         height: 0%;
+       }
+       100% {
+         width: 25%;
+         height: 25%;
+       }
+     }
+     .flwr__pedal--1,   .flwr__pedal--6, .flwr__pedal--5, .flwr__pedal--4, .flwr__pedal--3, .flwr__pedal--2 {
+       border-radius: 50%;
+       background: #ece8eb;
+       transform: translate(-50%, -50%);
+       position: absolute;
+       left: 50%;
+       top: 40%;
+       -webkit-animation: grow-pedal-back 1s 1.5s forwards;
+               animation: grow-pedal-back 1s 1.5s forwards;
+     }
+     .flwr__pedal--2 {
+       transform: translate(-50%, -50%) rotate(30deg);
+     }
+     .flwr__pedal--3 {
+       transform: translate(-50%, -50%) rotate(60deg);
+     }
+     .flwr__pedal--4 {
+       transform: translate(-50%, -50%) rotate(90deg);
+     }
+     .flwr__pedal--5 {
+       transform: translate(-50%, -50%) rotate(120deg);
+     }
+     .flwr__pedal--6 {
+       transform: translate(-50%, -50%) rotate(150deg);
+     }
+     @-webkit-keyframes grow-pedal-back {
+       0% {
+         width: 0%;
+         height: 0%;
+         border: 0px solid black;
+       }
+       100% {
+         width: 15%;
+         height: 45%;
+         border: 2px solid black;
+       }
+     }
+     @keyframes grow-pedal-back {
+       0% {
+         width: 0%;
+         height: 0%;
+         border: 0px solid black;
+       }
+       100% {
+         width: 15%;
+         height: 45%;
+         border: 2px solid black;
+       }
+     }
+    
+     
