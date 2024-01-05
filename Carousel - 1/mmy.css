@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.app{
+  display: flex;
+  height: 100vh;
+  background-color: #D4D4D4;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide{
+  aspect-ratio: 1.75/1;
+  height: 250px;
+  background-color: green;
+  border-radius: 3em;
+  color: white;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  padding: 1em 2em;
+  margin: 1em 0em;
+  display: flex;
+  align-items: end;
+  background-image: linear-gradient(0deg, black, transparent), url('https://png.pngtree.com/background/20230512/original/pngtree-nature-background-sunset-wallpaer-with-beautiful-flower-farms-picture-image_2503007.jpg');
+  background-size: 120%;
+  background-position: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1), background-size 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+}
+.slide:hover{
+  box-shadow: 
+    0 0 0 10px hsl(0, 0%, 80%),
+    0 0 0 15px hsl(0, 0%, 90%),
+    0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+  background-size: 130%;
+}
+.slide:first-child{
+  background-image: linear-gradient(0deg, black, transparent), url('https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=');
+  background-color: blue;
+}
+.slide:nth-child(3){
+  background-image: linear-gradient(0deg, black, transparent), url('https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630');
+}
+.slide h1{
+  position: absolute;
+  bottom: 1.75em;
+  letter-spacing: 0.05em;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.carousel{
+  position: relative;
+}
+
+.dot{
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: white;
+  opacity: 0.6;
+  transition: width 150ms ease-in-out, opacity 150ms ease-in-out;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  pointer-events: none;
+}
+.carousel .dots{
+  position: absolute;
+  bottom: 3em;
+  left: 2em;
+  display: flex;
+  gap: 0.5em;
+}
+
+.active {
+  width: 2em;
+  opacity: 1;
+}
+.slide-vis{
+  display: none;
+}
+
+.fade {
+  animation: transform 400ms ease-in-out;
+}
+.bg-fade {
+  animation: background-transform 400ms ease-in-out;
+}
+
+@keyframes transform {
+  from {transform: translateX(40px); opacity: 0;} 
+  to {transform: translateX(0px);opacity: 1;}
+}
+
+@keyframes background-transform {
+  from {background-position: 60%;} 
+  to {background-position: 50%;}
+}
