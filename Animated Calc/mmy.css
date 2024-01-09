@@ -1,0 +1,116 @@
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #091921;
+    font-family: 'Varela Round', sans-serif;
+  }
+  .main {
+    position: relative;
+    right: 150px;
+    width: 20rem;
+    height: 20rem;
+    padding: 30px;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-left: 1px solid rgba(255, 255, 255, 0.02);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  }
+  .calc {
+    position: absolute;
+    bottom: 1.5rem;
+    /*background-color: red;*/
+    width: 20rem;
+    height: 20rem;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    border-radius: 15px;
+  }
+  .btn,
+  .btn:hover {
+    font-family: "Varela Round";
+    font-size: 2rem;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.7px);
+    -webkit-backdrop-filter: blur(4.7px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-style: none;
+  }
+  #display {
+    font-family: 'Varela Round', sans-serif;
+    position: relative;
+    width: 20rem;
+    bottom: 5rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding-top: 1.3rem;
+    padding-bottom: 1.2rem;
+    border-radius: 10px;
+    font-family: "varela";
+    font-size: 1.7rem;
+    font-weight: 1000;
+    text-align: right;
+    outline-style: none;
+  }
+  .red,.red:hover{
+    background: rgba(241, 43, 8, 0.856);
+  }
+  .circle{
+    background: linear-gradient(#d84979,#42a1ad);
+    position: relative;
+    left: -90px;
+    top: -170px;
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+  }
+  .circle::before{
+    content: "";
+    background: linear-gradient(#d84979,#42a1ad);
+    display: inline-block;
+    position: relative;
+    top: 350px;
+    left: 520px;
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+  }
+  
+  @keyframes blink{
+    0%{
+      background-color: transparent;
+    }
+    100%{
+      background-color: white;
+    }
+  }
+  @media (max-width:412px) {
+    .main{
+      right: 50px;
+      bottom: 100px;
+    }
+    .circle{
+      left: 20px;
+      top: -300px;
+    }
+  }
