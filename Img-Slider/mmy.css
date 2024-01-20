@@ -1,0 +1,162 @@
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --image-size: 500px;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #131313;
+}
+.gallery {
+  max-width: 800px;
+  width: 100%;
+  height: 30rem;
+  position: relative;
+  display: grid;
+}
+.slider {
+  display: flex;
+  position: relative;
+}
+.wrapper {
+  position: relative;
+  display: none;
+  transition: transform 0.5s ease-out, left 0.5s ease-out;
+}
+.flipped {
+  position: absolute;
+  bottom: calc(-100% - 10px);
+  transform: scaleY(-1);
+}
+.wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-100% - 10px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(19, 19, 19, 0.75),
+    rgba(19, 19, 19, 1) 50%
+  );
+}
+.wrapper:has(+ * + * + .selected) {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-size));
+  transform: translate3d(-50%, -50%, 0) scale(0);
+  z-index: 0;
+}
+.wrapper:has(+ * + .selected) {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-size) / 2);
+  transform: translate3d(-50%, -50%, 0) scale(0.8);
+  z-index: 1;
+}
+.wrapper:has(+ .selected) {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-size) / 4);
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  z-index: 2;
+}
+.selected {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 3;
+}
+.selected + .wrapper {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--image-size) / 4);
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  z-index: 2;
+}
+.selected + * + .wrapper {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--image-size) / 2);
+  transform: translate3d(-50%, -50%, 0) scale(0.8);
+  z-index: 1;
+}
+.selected + * + * + .wrapper {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--image-size));
+  transform: translate3d(-50%, -50%, 0) scale(0);
+  z-index: 0;
+}
+.arrows {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 4;
+}
+.arrows .left,
+.arrows .right {
+  position: relative;
+  cursor: pointer;
+}
+.arrows .left.disabled,
+.arrows .right.disabled {
+  opacity: 0.5;
+}
+.arrows .left::before,
+.arrows .right::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 4px;
+  transform: translateY(-50%);
+}
+.arrows .left:before {
+  right: -100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+.arrows .right::before {
+  left: -100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+}
+.arrows svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #fff;
+}
+img {
+  border-radius: 6px;
+}
