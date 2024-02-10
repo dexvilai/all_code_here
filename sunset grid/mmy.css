@@ -1,0 +1,38 @@
+:root {
+	--dark: #222831;
+	--primary: #fc4306;
+	--primary-light: #e7a730;
+	--light: #f56839;
+  }
+  
+  html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: var(--dark);
+  }
+  
+  #sunset {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(0deg, rgba(34,40,49,0.3) 0%, rgba(34,40,49,0.8) 40%, rgba(179, 0, 12, 0.9) 55%,  rgba(221, 75, 82, 0.8) 70%, rgba(6, 42, 98, 0) 100%);
+  }
+  
+  #sun {
+	position: absolute;
+	top: 10%;
+	left: 0.6%;
+	width: 100%;
+	height: 50%;
+	background:  radial-gradient(circle, rgba(247, 10, 10, 0.8) 0%, rgba(242, 155, 41, 0.8) 20%, rgba(255,95,158,0) 22%, rgba(252,70,107,0) 100%);
+  }
+  
+  #canvas {
+	position: relative;
+  }
+  
