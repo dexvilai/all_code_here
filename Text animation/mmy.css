@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #000;
+  }
+  .neon-text {
+    background: #000;
+    color: #fff;
+    font-size: 160px;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    text-transform: uppercase;
+    animation: 1s ease infinite reverse glow;
+  }
+  .neon-text:before {
+    content: attr(data-text);
+    position: absolute;
+    mix-blend-mode: difference;
+    filter: blur(3px);
+  }
+  .neon-text:after {
+    content: "";
+    background: linear-gradient(45deg, #7b4397 30%, #dc2430 70%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0;
+    }
+    75% {
+      text-shadow: 0 0 16px;
+      filter: brightness(300%);
+    }
+  }
