@@ -1,0 +1,130 @@
+:root {
+  --line-thickness: .25em;
+  --glass-size: 65%;
+  --icon-height: 7rem;
+  --transition-speed: .45s;
+  --timing-function: cubic-bezier(.66,1.51,.77,1.13);
+  --icon-color: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #bf3ee6 0%, #e70fb8 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.search-icon {
+  box-sizing: border-box;
+  width: var(--icon-height);
+  height: var(--icon-height);
+  max-width: 20em;
+  transition: all var(--transition-speed) linear, border-color 0s linear var(--transition-speed);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border: solid var(--line-thickness);
+  border-color: rgba(255, 255, 255, 0);
+  border-radius: 100px;
+  padding: 0.25em;
+}
+.search-icon__wrapper {
+  width: var(--icon-height);
+  height: var(--icon-height);
+  position: absolute;
+  border-radius: 100px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 0;
+  transform: rotate(-45deg);
+  transition: all 0 linear;
+}
+.search-icon__wrapper:hover {
+  cursor: pointer;
+}
+.search-icon__input {
+  background: none;
+  text-align: center;
+  outline: none;
+  display: block;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  width: calc(100% - (var(--icon-height) / 2 + 1rem));
+  margin-right: 6rem;
+  height: 100%;
+  border-radius: 100px;
+  transition: all var(--transition-speed) linear;
+  font-size: 2em;
+  padding: 0 0.5em;
+  color: white;
+}
+.search-icon__input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+.search-icon__glass {
+  width: var(--glass-size);
+  height: var(--glass-size);
+  border: solid var(--line-thickness);
+  border-color: var(--icon-color);
+  border-radius: 100px;
+  margin: 0 auto;
+  position: relative;
+  transition: all var(--transition-speed) var(--timing-function) var(--transition-speed), border-color 0s linear var(--transition-speed);
+}
+.search-icon__handle {
+  height: calc(100% - var(--glass-size));
+  width: var(--line-thickness);
+  margin: 0 auto;
+  background: var(--icon-color);
+  position: absolute;
+  border-radius: 0 0 100px 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all var(--transition-speed) var(--timing-function);
+  transition-delay: var(--transition-speed);
+}
+.search-icon__handle::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--icon-color);
+  transform: rotate(0deg);
+  transition: all var(--transition-speed) var(--timing-function);
+  transition-delay: 0s;
+}
+.search-icon.open {
+  width: calc(100vw - 1em);
+  border-color: var(--icon-color);
+  transition-delay: var(--transition-speed);
+}
+.search-icon.open .search-icon__input {
+  transition-delay: var(--transition-speed);
+}
+.search-icon.open .search-icon__glass {
+  width: 100%;
+  height: 100%;
+  transition: all var(--transition-speed) var(--timing-function) 0s, border-color 0s linear var(--transition-speed);
+  border-color: rgba(0, 0, 0, 0);
+}
+.search-icon.open .search-icon__handle {
+  bottom: calc(50% - (100% - var(--glass-size)) / 2);
+  border-radius: 100px;
+  transition-delay: 0s;
+}
+.search-icon.open .search-icon__handle::after {
+  transition-delay: var(--transition-speed);
+  transform: rotate(90deg);
+}
