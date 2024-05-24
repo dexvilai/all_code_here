@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1c27;
+}
+img {
+  max-width: 50%;
+  height: auto;
+  border: 20px solid rgb(46, 170, 192);
+  padding: 50px;
+  border-radius: 50%;
+  animation: fananim linear infinite;
+}
+@keyframes fananim {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+button {
+  width: 100px;
+  height: 100px;
+  padding: 20px 30px;
+  margin: 0 20px;
+  font-size: 25px;
+  font-weight: 550;
+  border: none;
+  background-color: rgb(142, 242, 237);
+  border-radius: 50%;
+  transition: 0.1s;
+}
+.main button:nth-last-child(5) {
+  background-color: rgb(54, 166, 54);
+}
+.main button:nth-last-child(4) {
+  background-color: rgb(201, 19, 19);
+}
+button:active {
+  box-shadow: 0px 10px 10px black;
+  transform: scale(0.95);
+}
