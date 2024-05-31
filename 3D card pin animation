@@ -1,0 +1,236 @@
+HTML
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <div class="inner-container">
+        <div class="card-wrap">
+          <div class="card">
+            <h5>Card</h5>
+            <p>Write anything you want.</p>
+            <div class="color-div"></div>
+          </div>
+        </div>
+        <div class="pin-wrap">
+          <div class="pin-inner">
+            <div class="pin-title">
+              Profile Card
+            </div>
+            <div class="wave-main">
+              <div class="wave-1 wave"></div>
+              <div class="wave-2 wave"></div>
+              <div class="wave-3 wave"></div>
+            </div>
+            <div class="pin-line"></div>
+            <div class="pin-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+
+
+
+
+CSS
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #000;
+  overflow-x: hidden;
+  height: 100svh;
+  font-family: "Reddit Mono", monospace;
+  min-height: 400px;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+h5 {
+  color: #ffff;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+p {
+  color: #ffff;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+.color-div {
+  height: 200px;
+  width: 100%;
+  background: rgb(17, 153, 142);
+  background: linear-gradient(
+    125deg,
+    rgba(17, 153, 142, 1) 44%,
+    rgba(56, 239, 125, 1) 100%
+  );
+  border-radius: 15px;
+}
+.container {
+  max-width: 1199px;
+  margin: 0 auto;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.inner-container {
+  height: 100%;
+  perspective: 1000px;
+}
+.card {
+  border: 1px solid #4a4747;
+  display: inline-block;
+  padding: 40px 20px;
+  border-radius: 20px;
+  max-width: 320px;
+}
+.card-wrap {
+  transition: transform 0.5s ease-in-out;
+}
+.inner-container:hover .card-wrap {
+  transform: rotateX(40deg) scale(0.8);
+}
+.inner-container:hover .pin-wrap {
+  opacity: 1;
+}
+.pin-wrap {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  width: 362px;
+  display: flex;
+  pointer-events: none;
+}
+.pin-inner {
+  flex: none;
+  height: 100%;
+  width: 100%;
+  margin-top: -1.75rem;
+  inset: 0;
+}
+.pin-title {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+.wave-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  perspective: 1000px;
+  transform: rotateX(70deg) translateZ(0px) translate(-50%, -50%);
+}
+.wave {
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-shadow: 0 8px 16px rgb(0 0 0/0.5);
+  opacity: 0;
+}
+.wave-1 {
+  animation: wave-animation 4s infinite;
+  animation-delay: 0s;
+}
+.wave-2 {
+  animation: wave-animation 4s infinite;
+  animation-delay: 1.5s;
+}
+.wave-3 {
+  animation: wave-animation 4s infinite;
+  animation-delay: 2.5s;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: translate(-50%, -50%) translateZ(0px) scale(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateZ(0px) scale(1);
+  }
+}
+.pin-line {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.7) 52%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 140px;
+  width: 1px;
+  right: 50%;
+  bottom: 50%;
+  position: absolute;
+}
+.pin-dot {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 9999px;
+  height: 3px;
+  width: 3px;
+  right: 50%;
+  bottom: 50%;
+  z-index: 40;
+  position: absolute;
+  transform: translateX(0.7px);
+}
+@media screen and (max-width: 480px) {
+  p {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .card {
+    padding: 20px;
+    max-width: 240px;
+  }
+  .color-div {
+    height: 150px;
+  }
+  .wave-main {
+    top: 53%;
+  }
+  .wave {
+    height: 120px;
+    width: 120px;
+  }
+  .pin-wrap {
+    width: 282px;
+  }
+  .pin-line {
+    height: 110px;
+    bottom: 47%;
+  }
+  .pin-dot {
+    bottom: 47%;
+  }
+  .card-wrap:hover {
+    transform: rotateX(40deg) scale(0.9);
+  }
+}
